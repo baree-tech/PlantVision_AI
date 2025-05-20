@@ -62,7 +62,7 @@ if final_image:
         img_array = np.expand_dims(img_array, axis=0)
 
         # Predict
-        predictions = model.predict(img_array)
+        predictions = model(img_array,training=False).numpy()
         confidence = float(np.max(predictions))
         predicted_class = class_names[int(np.argmax(predictions))]
 
