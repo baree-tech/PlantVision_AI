@@ -27,13 +27,10 @@ class_names = [
     'Tomato___Tomato_mosaic_virus', 'Tomato___healthy'
 ]
 
-# # App title and credit
-# st.title("🌿 Plant Disease Detection App")
-# st.markdown("Created by: Bareera Mushthak")
-# App title
-st.set_page_config(page_title="Plant Disease Detector", layout="centered")
+# App title 
 st.title("🌿 Plant Disease Detection App")
-st.markdown("Created by: *Bareera Mushthak*")
+st.markdown("Created by: Bareera Mushthak")
+
 
 # Image input section
 st.header("📸 Upload or Capture Leaf Image")
