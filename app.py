@@ -64,7 +64,7 @@ if final_image:
         output = infer(input_tensor)
 
         # Debug: print output keys to find the correct one (only needed once)
-        st.write("🧪 Output keys:", list(output.keys()))
+        # st.write("🧪 Output keys:", list(output.keys()))
         
         # Get predictions using the correct output key
         pred_array = output[list(output.keys())[0]].numpy()
