@@ -48,12 +48,23 @@ elif input_method == "📷 Use Camera":
     if camera_image is not None:
         final_image = Image.open(camera_image).convert("RGB")
         st.image(final_image, caption="📷 Captured Image", use_column_width=True)
-st.markdown("### 🌿 Supported Plant Types")
+# st.markdown("### 🌿 Supported Plant Types")
+# st.markdown("""
+# This app currently supports detection for the following *12 plant types*:
+# 🍎 Apple | 🫐 Blueberry | 🍒 Cherry | 🌽 Corn | 🍇 Grape | 🍑 Peach | 🫑 Pepper | 🥔 Potato | 🌱 Soybean | 🎃 Squash | 🍓 Strawberry | 🍅 Tomato  
+# 📌 *Please upload clear leaf images from one of these plants.  Uploading unknown or unsupported plant types may result in incorrect predictions.*""")
 st.markdown("""
-This app currently supports detection for the following *12 plant types*:
-🍎 Apple | 🫐 Blueberry | 🍒 Cherry | 🌽 Corn | 🍇 Grape | 🍑 Peach | 🫑 Pepper | 🥔 Potato | 🌱 Soybean | 🎃 Squash | 🍓 Strawberry | 🍅 Tomato  
-📌 *Please upload clear leaf images from one of these plants.  Uploading unknown or unsupported plant types may result in incorrect predictions.*""")
+### 🌿 Supported Plant Types
 
+<div style='font-size: 14px; line-height: 1.6;'>
+This app currently supports detection for the following <b>12 plant types</b>:  
+🍎 Apple &nbsp;|&nbsp; 🫐 Blueberry &nbsp;|&nbsp; 🍒 Cherry &nbsp;|&nbsp; 🌽 Corn  
+🍇 Grape &nbsp;|&nbsp; 🍑 Peach &nbsp;|&nbsp; 🫑 Pepper &nbsp;|&nbsp; 🥔 Potato  
+🌱 Soybean &nbsp;|&nbsp; 🎃 Squash &nbsp;|&nbsp; 🍓 Strawberry &nbsp;|&nbsp; 🍅 Tomato  
+</div>
+
+<span style='font-size: 12px; color: gray;'>📌 Please upload <b>clear leaf images</b> from one of these plants. Uploading unknown or unsupported types may result in incorrect predictions.</span>
+""", unsafe_allow_html=True)
 # Prediction and results
 if final_image:
     try:
