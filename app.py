@@ -10,7 +10,7 @@ from suggestions import plant_disease_info  # Import suggestion dictionary
 import cv2 # for camera input
 
 # Step 2: Load model
-model = tf.keras.models.load_model("Plant_disease_model.h5")
+model = tf.keras.models.load_model("Plant_disease_model.h5",compile=False)
 
 # Step 3: Load class names (same order as model training)
 class_names = [
