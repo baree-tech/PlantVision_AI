@@ -62,9 +62,19 @@ if final_image:
         img_array = np.expand_dims(img_array, axis=0)
 
         # Predict
-        predictions = model(img_array,training=False).numpy()
-        confidence = float(np.max(predictions))
-        predicted_class = class_names[int(np.argmax(predictions))]
+        # Use SavedModel signature to make predictions
+        infer = model.signatures["serving_default"]
+        input_tensor = tf.convert_to_tensor(img_array, dtype=tf.float32)
+        output = infer(input_tensor)
+
+        # Debug: print output keys to find the correct one (only needed once)
+        st.write("🧪 Output keys:", list(output.keys()))
+        
+        # Get predictions using the correct output key
+        pred_array = output[list(output.keys())[0]].numpy()
+        
+        confidence = float(np.max(pred_array))
+        predicted_class = class_names[np.argmax(pred_array)]
 
         # Results
         if confidence < 0.7:
