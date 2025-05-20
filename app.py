@@ -30,6 +30,26 @@ class_names = [
 # App title and credits
 st.title("🌿 Plant Disease Detection App")
 st.markdown("Created by: Bareera Mushthak")
+st.markdown("### 🌿 Supported Plant Types")
+st.markdown("""
+This app currently supports detection for the following *12 plant types*:
+
+- 🍎 Apple  
+- 🫐 Blueberry  
+- 🍒 Cherry  
+- 🌽 Corn  
+- 🍇 Grape  
+- 🍑 Peach  
+- 🫑 Pepper  
+- 🥔 Potato  
+- 🌱 Soybean  
+- 🎃 Squash  
+- 🍓 Strawberry  
+- 🍅 Tomato  
+
+📌 *Please upload clear leaf images from one of these plants.  
+Uploading unknown or unsupported plant types may result in incorrect predictions.*
+""")
 
 # Image input section
 st.header("📸 Upload or Capture Leaf Image")
@@ -83,7 +103,7 @@ if final_image:
             st.write(f"🌱 Suggestion: {info.get('suggestion', 'No specific advice')}")
             st.write(f"📌 Note: {info.get('note', 'Be cautious with treatments')}")
             st.write(f"🔍 Model Confidence: {confidence:.2f}")
-
+        st.info("📌 Please upload a clear image of a supported plant leaf. Blurry or unknown plant leaves may lead to misclassification.")
     except Exception as e:
         st.error("❌ Prediction failed.")
         st.exception(e)
