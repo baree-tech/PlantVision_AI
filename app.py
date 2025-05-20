@@ -27,9 +27,13 @@ class_names = [
     'Tomato___Tomato_mosaic_virus', 'Tomato___healthy'
 ]
 
-# App title and credits
+# # App title and credits
+# st.title("🌿 Plant Disease Detection App")
+# st.markdown("Created by: Bareera Mushthak")
+# App title
+st.set_page_config(page_title="Plant Disease Detector", layout="centered")
 st.title("🌿 Plant Disease Detection App")
-st.markdown("Created by: Bareera Mushthak")
+st.markdown("Created by: *Bareera Mushthak*")
 
 # Image input section
 st.header("📸 Upload or Capture Leaf Image")
@@ -41,18 +45,13 @@ if input_method == "📁 Upload Image":
     uploaded_file = st.file_uploader("Upload a leaf image", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
         final_image = Image.open(uploaded_file).convert("RGB")
-        st.image(final_image, caption="📤 Uploaded Image", use_column_width=True)
-
+       
 elif input_method == "📷 Use Camera":
     camera_image = st.camera_input("Take a photo using your webcam")
     if camera_image is not None:
         final_image = Image.open(camera_image).convert("RGB")
-        st.image(final_image, caption="📷 Captured Image", use_column_width=True)
-# st.markdown("### 🌿 Supported Plant Types")
-# st.markdown("""
-# This app currently supports detection for the following *12 plant types*:
-# 🍎 Apple | 🫐 Blueberry | 🍒 Cherry | 🌽 Corn | 🍇 Grape | 🍑 Peach | 🫑 Pepper | 🥔 Potato | 🌱 Soybean | 🎃 Squash | 🍓 Strawberry | 🍅 Tomato  
-# 📌 *Please upload clear leaf images from one of these plants.  Uploading unknown or unsupported plant types may result in incorrect predictions.*""")
+        
+
 st.markdown("""
 ### 🌿 Supported Plant Types
 
@@ -67,6 +66,7 @@ This app currently supports detection for the following <b>12 plant types</b>:
 """, unsafe_allow_html=True)
 # Prediction and results
 if final_image:
+    st.image(final_image, caption="📤 Uploaded Image", use_column_width=True)
     try:
         # Preprocess
         img = final_image.resize((180, 180))
