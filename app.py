@@ -27,7 +27,7 @@ class_names = [
     'Tomato___Tomato_mosaic_virus', 'Tomato___healthy'
 ]
 
-# # App title and credits
+# # App title and credit
 # st.title("🌿 Plant Disease Detection App")
 # st.markdown("Created by: Bareera Mushthak")
 # App title
